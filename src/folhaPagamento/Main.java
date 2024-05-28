@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Digite suas horas trabalhadas: ");
-		int horasTrabalhadas = scanner.nextInt();
+		float horasTrabalhadas = scanner.nextFloat();
 		System.out.print("Digite o valor da sua hora: ");
 		float valorHora = scanner.nextFloat();
 		float salarioBruto = calcularSalarioBruto(valorHora, horasTrabalhadas);
@@ -14,7 +14,7 @@ public class Main {
 		mostrarFolhaPagamento(valorHora, horasTrabalhadas, salarioBruto);
 	}
 	
-	public static float calcularSalarioBruto(float valorHora, int horasTrabalhadas) {
+	public static float calcularSalarioBruto(float valorHora, float horasTrabalhadas) {
 		return valorHora * horasTrabalhadas;
 	}
 	
@@ -94,11 +94,11 @@ public class Main {
 		return salarioBruto * porcentagemImposto;
 	}
 	
-	public static void mostrarFolhaPagamento(float valorHora, int horasTrabalhadas, float salarioBruto) {
+	public static void mostrarFolhaPagamento(float valorHora, float horasTrabalhadas, float salarioBruto) {
 		float somarImposto = somarImpostos(salarioBruto);
 	
 		System.out.print("\n");
-		System.out.println(String.format("(+) Salário Bruto(%.2f * %d): R$%.2f", valorHora, horasTrabalhadas, salarioBruto));
+		System.out.println(String.format("(+) Salário Bruto(%.2f * %.2f): R$%.2f", valorHora, horasTrabalhadas, salarioBruto));
 		System.out.println(String.format("(-) IR(%.2f%%)................: R$%.2f", pegarPorcentagemImposto("IR", salarioBruto) * 100, pegarImposto("IR", salarioBruto)));
 		System.out.println(String.format("(-) INSS(%.2f%%).............: R$%.2f", pegarPorcentagemImposto("INSS", salarioBruto) * 100, pegarImposto("INSS", salarioBruto)));
 		System.out.println(String.format("(+) FGTS(%.2f%%).............: R$%.2f", pegarPorcentagemImposto("FGTS", salarioBruto) * 100, pegarImposto("FGTS", salarioBruto)));
