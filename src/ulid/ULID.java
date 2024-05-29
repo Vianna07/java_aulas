@@ -43,14 +43,13 @@ public class ULID {
     }
     
     private String decode(String code) {
+    	String _ENCODING = new String(ULID.ENCODING);
     	String decoding = "";
-    	
+    	    	
     	for (char character : code.toCharArray()) {
-//        	System.out.println(character + " - " + ULID.ENCODING.toString().indexOf(character) + " - " + ULID.ENCODING.toString() + " - " + ULID.ENCODING);
-    		decoding = ULID.ENCODING.toString().indexOf(character) + decoding; 
+    		decoding += _ENCODING.indexOf(character); 
     	}
-    	
-    	System.out.println(decoding);
+
     	return decoding;
     }
     
