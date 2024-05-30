@@ -8,14 +8,8 @@ public class ULID {
 	private static final int TIMESTAMP_LENGTH = 10;
 	private static final int RANDOM_PART_LENGTH = 16;
 	private final Random random = new Random();
-	
-	private long timestamp;
-	private long randomPart;
-	
-	public ULID(long ...timestamp) {
-        this.timestamp = (timestamp != null && timestamp.length > 0) ? timestamp[0] : System.currentTimeMillis();
-        this.randomPart = Math.abs(random.nextLong());
-	}
+		
+//	public ULID() {}
     
     private String encode(long value, int limit) {
     	String encoding = "";
@@ -30,30 +24,34 @@ public class ULID {
     	return encoding;
     }
     
-    private String encodeTimestamp() {
-    	return this.encode(this.timestamp, ULID.TIMESTAMP_LENGTH);
+    private String encodeTimestamp(long timestamp) {
+    	return this.encode(timestamp, ULID.TIMESTAMP_LENGTH);
     }
     
     private String encodeRandomPart() {
-    	return this.encode(randomPart, ULID.RANDOM_PART_LENGTH);
+    	return this.encode(Math.abs(random.nextLong()), ULID.RANDOM_PART_LENGTH);
     }
     
     public String nextULID() {
-    	return this.encodeTimestamp() + this.encodeRandomPart();
+    	return this.encodeTimestamp(System.currentTimeMillis()) + this.encodeRandomPart();
     }
     
-    private String decode(String code) {
+    public String nextULID(long timestamp) {
+    	return this.encodeTimestamp(timestamp) + this.encodeRandomPart();
+    }
+    
+    private long decode(String code) {
     	String _ENCODING = new String(ULID.ENCODING);
-    	String decoding = "";
-    	    	
-    	for (char character : code.toCharArray()) {
-    		decoding += _ENCODING.indexOf(character); 
+    	long decoding = 0;
+ 
+    	for (int i = 0; i < code.length() ; i++) {
+        	decoding += (int) _ENCODING.indexOf(code.charAt(i)) * Math.pow(ULID.ENCODING_LENGTH, code.length() - 1 - i);
     	}
-
+    	
     	return decoding;
     }
     
-    public String decodeTimestamp(String ulid) {
-    	return decode(ulid.substring(0, ULID.TIMESTAMP_LENGTH));
+    public long decodeTimestamp(String ulid) {
+    	return this.decode(ulid.substring(0, ULID.TIMESTAMP_LENGTH));
     }
 }
