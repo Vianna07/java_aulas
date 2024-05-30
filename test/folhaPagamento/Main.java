@@ -1,4 +1,4 @@
-package testFolhaPagamento;
+package folhaPagamento;
 
 import java.util.Arrays;
 import java.util.List;

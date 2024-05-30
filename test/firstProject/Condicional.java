@@ -1,6 +1,7 @@
 package firstProject;
 
 public class Condicional {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		if (20 < 18) {
 			System.out.println("20 é menor que 18");
