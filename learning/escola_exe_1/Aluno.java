@@ -1,4 +1,4 @@
-package escola;
+package escola_exe_1;
 
 public class Aluno {
 	private static int MATRICULA = 0;

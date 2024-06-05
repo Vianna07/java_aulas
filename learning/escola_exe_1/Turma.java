@@ -1,4 +1,4 @@
-package escola;
+package escola_exe_1;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;

@@ -1,0 +1,170 @@
+package escola_exe_2;
+
+public class AnalisadorMatricula {
+	public void adicionar(Estudante estudante, Disciplina disciplina) {
+		
+	}
+}
+package escola_exe_2;
+
+public class Disciplina {
+	private String nome;
+	private int numCreditos;
+	
+	public Disciplina(String nome, int numCreditos) {
+		this.setNome(nome);
+		this.setNumCreditos(numCreditos);
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getNumCreditos() {
+		return numCreditos;
+	}
+
+	public void setNumCreditos(int numCreditos) {
+		this.numCreditos = numCreditos;
+	}
+	
+	public void estaCompleta() {
+		
+	}
+	
+	public void adicionar(Estudante estudante) {
+		
+	}
+}
+package escola_exe_2;
+
+public class Estudante extends Usuario {
+	private int matricula;
+
+	public Estudante(String nome, int matricula) {
+		super(nome);
+		this.setMatricula(matricula);
+	}
+
+	public int getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
+}
+package escola_exe_2;
+
+public class FormularioMatricula {
+	public void obterEstudante() {
+		
+	}
+	
+	public void obterNomeDisciplina(int i) {
+		
+	}
+}
+package escola_exe_2;
+
+public class Professor extends Usuario {
+	private String titulacao;
+
+	public Professor(String nome, String titulacao) {
+		super(nome);
+		this.setTitulacao(titulacao);
+	}
+
+	public String getTitulacao() {
+		return titulacao;
+	}
+
+	public void setTitulacao(String titulacao) {
+		this.titulacao = titulacao;
+	}
+}
+package escola_exe_2;
+
+import java.time.LocalTime;
+
+public class Turma {
+	private String codigo;
+	private String sala;
+	private LocalTime horario;
+	private int numAlunos;
+	private boolean completa;
+
+	public Turma(String codigo, String sala, LocalTime horario, int numAlunos, boolean completa) {
+		super();
+		this.codigo = codigo;
+		this.sala = sala;
+		this.horario = horario;
+		this.numAlunos = numAlunos;
+		this.completa = completa;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getSala() {
+		return sala;
+	}
+
+	public void setSala(String sala) {
+		this.sala = sala;
+	}
+
+	public LocalTime getHorario() {
+		return horario;
+	}
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
+	}
+
+	public int getNumAlunos() {
+		return numAlunos;
+	}
+
+	public void setNumAlunos(int numAlunos) {
+		this.numAlunos = numAlunos;
+	}
+
+	public boolean isCompleta() {
+		return completa;
+	}
+
+	public void setCompleta(boolean completa) {
+		this.completa = completa;
+	}	
+	
+	public void estaCompleta() {
+		
+	}
+}
+package escola_exe_2;
+
+public class Usuario {
+	private String nome;
+
+	public Usuario(String nome) {
+		this.setNome(nome);
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+}
